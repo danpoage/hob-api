@@ -1,9 +1,9 @@
 {
     "rust-analyzer.linkedProjects": [
         "./Cargo.toml",
-        "./Cargo.toml",
-        "./Cargo.toml",
-        "./Cargo.toml",
-        "./Cargo.toml"
-    ]
+        "./models/entities.rs",
+        "./models/stats.rs",
+        "./models/traits.rs"
+    ],
+    "rust-analyzer.showUnlinkedFileNotification": false
 }

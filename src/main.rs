@@ -5,13 +5,20 @@ use std::{env, io};
 
 use actix_web::{middleware, App, HttpServer};
 
+//use crate::models::{Card,Hero,Ally};
+
 mod constants;
+mod entities;
+mod stats;
+mod traits;
 mod version;
 
 #[actix_rt::main]
 async fn main() -> io::Result<()> {
     env::set_var("RUST_LOG", "actix_web=debug,actix_server=info");
     env_logger::init();
+
+    //let c = Card::new();
 
     HttpServer::new(|| {
         App::new()
