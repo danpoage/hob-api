@@ -9,6 +9,8 @@ pub struct Card {
     pub title: String,
     pub card_type: CardType,
     pub stats: HashMap<StatType, Stat>,
+    pub traits: HashSet<Trait>,
+    pub keywords: HashSet<Keyword>,
     pub quest_info: Option<QuestInfo>,
     pub links: Vec<Link>,
     pub tags: HashSet<Tag>,

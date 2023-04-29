@@ -4,8 +4,6 @@ pub enum Stat {
     Number(u8),
     Letter(char),
     Sphere(Sphere),
-    Trait(Trait),
-    Keyword(Keyword),
 }
 
 pub enum StatType {
@@ -13,8 +11,7 @@ pub enum StatType {
     Attack,
     Defense,
     HitPoints,
-    Trait,
-    Keyword,
+    VictoryPoints,
 }
 
 pub enum Trait {
