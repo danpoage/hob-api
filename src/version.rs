@@ -11,7 +11,7 @@ pub struct Version {
     major: u8,
     minor: u8,
     patch: u8,
-    stamp: DateTime<Utc>
+    stamp: DateTime<Utc>,
 }
 
 impl Version {
@@ -21,7 +21,7 @@ impl Version {
             minor: minor,
             patch: patch,
             stamp: Utc::now(),
-            name: format!("{}.{}.{}", major, minor, patch)
+            name: format!("{}.{}.{}", major, minor, patch),
         }
     }
 }
@@ -30,7 +30,5 @@ impl Version {
 pub async fn display() -> HttpResponse {
     let ver = Version::new(0, 0, 1);
 
-    HttpResponse::Ok()
-        .content_type(APPLICATION_JSON)
-        .json(ver)
+    HttpResponse::Ok().content_type(APPLICATION_JSON).json(ver)
 }

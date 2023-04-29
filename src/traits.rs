@@ -1,16 +1,10 @@
-use  crate::stats::{Sphere,Stat};
+use crate::entities::{Link, Tag};
+use std::collections::HashSet;
 
-pub trait IsCard {
+pub trait Linked {
+    fn links(&self) -> Vec<Link>;
 }
 
-pub trait HasCost {
-    fn cost(&self) -> Stat;
-}
-
-pub trait HasCards {
-    fn cards(&self) -> Vec<Box<dyn IsCard>>;
-}
-
-pub trait HasSphere {
-    fn sphere(&self) -> Option<Sphere>;
+pub trait Tagged {
+    fn tags(&self) -> HashSet<Tag>;
 }
