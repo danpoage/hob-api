@@ -45,6 +45,7 @@ pub enum LinkType {
     EncounterSetIcon,
     CardImage,
     CardThumbnail,
+    Illustrator,
     Blog,
     Video,
 }
