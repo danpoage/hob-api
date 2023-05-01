@@ -5,11 +5,12 @@ use std::{env, io};
 
 use actix_web::{middleware, App, HttpServer};
 
-//use crate::models::{Card,Hero,Ally};
+use structs::Link;
+use enums::*;
 
 mod constants;
-mod entities;
-mod stats;
+mod structs;
+mod enums;
 mod traits;
 mod version;
 
@@ -18,7 +19,11 @@ async fn main() -> io::Result<()> {
     env::set_var("RUST_LOG", "actix_web=debug,actix_server=info");
     env_logger::init();
 
-    //let c = Card::new();
+    let l = Link{
+        link_source: enums::LinkSource::HallOfBeorn,
+        link_type: LinkType::Blog,
+        url: String::from("http://hallofbeorn.wordpress.com")
+    };
 
     HttpServer::new(|| {
         App::new()

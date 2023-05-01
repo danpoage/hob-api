@@ -1,4 +1,5 @@
-use crate::entities::{Link, Tag};
+use crate::structs::Link;
+use crate::enums::Tag;
 use std::collections::HashSet;
 
 pub trait Linked {

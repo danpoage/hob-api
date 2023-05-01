@@ -1,19 +1,24 @@
 use std::collections::HashMap;
 use std::collections::HashSet;
 
-use crate::stats::*;
+use crate::enums::*;
 //use crate::traits::IsCard;
 
 pub struct Card {
+    pub front: Side,
+    pub back: Option<Side>,
+    pub quest_info: Option<QuestInfo>,
+    pub links: Vec<Link>,
+    pub tags: HashSet<Tag>,
+}
+
+pub struct Side {
     pub id: String,
     pub title: String,
     pub card_type: CardType,
     pub stats: HashMap<StatType, Stat>,
     pub traits: HashSet<Trait>,
     pub keywords: HashSet<Keyword>,
-    pub quest_info: Option<QuestInfo>,
-    pub links: Vec<Link>,
-    pub tags: HashSet<Tag>,
 }
 
 pub struct QuestInfo {
@@ -27,55 +32,17 @@ pub struct EncounterSet {
     links: Vec<Link>,
 }
 
-pub enum EncounterSetType {
-    Cycle,
-    Standalone,
-    Nightmare,
-    Saga,
-}
-
 pub struct Link {
-    link_source: LinkSource,
-    link_type: LinkType,
-    url: String,
-}
-
-pub enum LinkType {
-    None,
-    EncounterSetIcon,
-    CardImage,
-    CardThumbnail,
-    Illustrator,
-    Blog,
-    Video,
-}
-
-pub enum LinkSource {
-    None,
-    CardboardOfTheRings,
-    HallOfBeorn,
-    VisionOfThePalantir,
+    pub link_source: LinkSource,
+    pub link_type: LinkType,
+    pub url: String,
 }
 
 pub struct CardType {
-    main_type: CardMainType,
-    sub_type: CardSubType,
-    is_unique: bool,
-}
-
-pub enum CardMainType {
-    Hero,
-    Ally,
-    Attachment,
-    Event,
-    PlayerSideQuest,
-    Contract,
-}
-
-pub enum CardSubType {
-    None,
-    Boon,
-    Burden,
+    pub main_type: CardMainType,
+    pub sub_type: CardSubType,
+    pub deck_type: DeckType,
+    pub is_unique: bool,
 }
 
 pub struct Product {
@@ -88,26 +55,16 @@ pub struct Product {
     tags: HashSet<Tag>,
 }
 
-pub enum ProductCode {
-    MEC01,
-}
-
-pub enum ProductType {
-    CoreSet,
-    DeluxeExpansion,
-    AdventurePack,
-    SagaExpansion,
-    LimitedEditionStarter,
-    GenCon,
-    Fellowship,
-    CustomScenarioKit,
-    Community,
-}
-
 pub struct ProductItem {
     card: Card,
-    number: u16,
+    front_info: SideInfo,
+    back_info: Option<SideInfo>,
     quantity: u8,
+}
+
+pub struct SideInfo {
+    number: u16,
+    letter: Option<char>,
     links: Vec<Link>,
     tags: HashSet<Tag>,
 }
@@ -125,7 +82,3 @@ pub struct ScenarioItem {
     nightmare_quantity: Option<u8>,
 }
 
-pub enum Tag {
-    None,
-    ElrondVilya,
-}
