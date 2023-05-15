@@ -1,5 +1,5 @@
 use crate::structs::Link;
-use crate::enums::Tag;
+//use crate::enums::Tag;
 use std::collections::HashSet;
 
 pub trait Linked {
@@ -7,5 +7,5 @@ pub trait Linked {
 }
 
 pub trait Tagged {
-    fn tags(&self) -> HashSet<Tag>;
+    fn tags(&self) -> HashSet<String>;
 }

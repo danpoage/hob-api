@@ -27,7 +27,7 @@ impl Version {
 }
 
 #[get("/version")]
-pub async fn display() -> HttpResponse {
+pub async fn get() -> HttpResponse {
     let ver = Version::new(0, 0, 1);
 
     HttpResponse::Ok().content_type(APPLICATION_JSON).json(ver)
