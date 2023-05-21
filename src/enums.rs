@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum Stat {
     NA,
     X,
@@ -9,30 +9,33 @@ pub enum Stat {
     Sphere(Sphere),
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum StatType {
     Willpower,
     Attack,
     Defense,
     HitPoints,
     VictoryPoints,
+    ResourceCost,
+    ThreatCost,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum Trait {
     None,
     Gondor,
+    Istari,
     Warrior,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum Keyword {
     None,
     Ranged,
     Sentinel,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum Sphere {
     Leadership,
     Tactics,
@@ -43,7 +46,7 @@ pub enum Sphere {
     Fellowship,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum EncounterSetType {
     Cycle,
     Standalone,
@@ -51,7 +54,7 @@ pub enum EncounterSetType {
     Saga,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum CardMainType {
     Hero,
     Ally,
@@ -61,14 +64,13 @@ pub enum CardMainType {
     Contract,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum CardSubType {
-    None,
     Boon,
     Burden,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum DeckType {
     None,
     Player,
@@ -76,7 +78,7 @@ pub enum DeckType {
     Quest,
 }
 
-#[derive(Debug, Deserialize, Serialize, PartialEq, Eq)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum ProductCode {
     MEC01,  //Core Set
     MEC02,  //The Hunt for Gollum
@@ -95,7 +97,7 @@ impl ProductCode {
     }
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum ProductType {
     CoreSet,
     DeluxeExpansion,
@@ -108,7 +110,7 @@ pub enum ProductType {
     Community,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum LinkType {
     None,
     EncounterSetIcon,
@@ -119,7 +121,7 @@ pub enum LinkType {
     Video,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Eq, PartialEq, Hash)]
 pub enum LinkSource {
     None,
     CardboardOfTheRings,

@@ -1,5 +1,4 @@
-//use std::collections::HashMap;
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 
 use serde::{Deserialize, Serialize};
 
@@ -20,9 +19,9 @@ pub struct Side {
     pub id: String,
     pub title: String,
     pub card_type: CardType,
-    //pub stats: HashMap<StatType, Stat>,
-    //pub traits: HashSet<Trait>,
-    //pub keywords: HashSet<Keyword>,
+    pub stats: HashMap<StatType, Stat>,
+    pub traits: HashSet<Trait>,
+    pub keywords: HashSet<Keyword>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -48,7 +47,7 @@ pub struct Link {
 #[derive(Debug, Deserialize, Serialize)]
 pub struct CardType {
     pub main_type: CardMainType,
-    pub sub_type: CardSubType,
+    pub sub_type: Option<CardSubType>,
     pub deck_type: DeckType,
     pub is_unique: bool,
 }
@@ -66,18 +65,18 @@ pub struct Product {
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct ProductItem {
-    card: Card,
-    front_info: SideInfo,
-    back_info: Option<SideInfo>,
-    quantity: u8,
+    pub card: Card,
+    pub front_info: SideInfo,
+    pub back_info: Option<SideInfo>,
+    pub quantity: u8,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct SideInfo {
-    number: u16,
-    letter: Option<char>,
-    links: Vec<Link>,
-    tags: HashSet<String>,
+    pub number: u16,
+    pub letter: Option<char>,
+    pub links: Option<Vec<Link>>,
+    pub tags: Option<HashSet<String>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
